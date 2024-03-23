@@ -1,0 +1,21 @@
+#app_default_index:
+#    path: /{_locale}
+#    controller: App\Controller\DefaultController::index
+#    requirements:
+#        _locale: '%app.supported_locales%'
+#    defaults:
+#        _locale: fr
+
+#app_default_contact:
+#    path: /{_locale}/contact
+#    controller: App\Controller\DefaultController::contact
+#    requirements:
+#        _locale: '%app.supported_locales%'
+
+#app_default_boutique:
+#    path: /{_locale}/boutique
+#    controller: App\Controller\BoutiqueController::index
+#    requirements:
+#        _locale: '%app.supported_locales%'
+#    defaults:
+#        _locale: fr

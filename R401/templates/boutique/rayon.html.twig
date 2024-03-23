@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Rayon
+{% endblock %}
+
+{% block body %}
+
+	<div class="card col-md-12">
+		<div class="card-header">
+			<a class="btn-back text-secondary" href="/boutique/">
+				<i class="fas fa-2x fa-arrow-circle-left"></i>
+			</a>
+			<h3>
+				<i class="fas fa-store"></i>
+				Rayon 
+				<b>{{libelle}}</b>
+				<span class="badge badge-pill badge-secondary">{{ produits|length}}</span>
+				produit(s) disponible(s)
+			</h3>
+		</div>
+		<div class="card-body row">
+
+			{% for item in produits %}
+
+				<div class="col-md-4">
+					<div class="card clickable" onclick="location = '{{ path('app_panier_ajouter', {'idProduit': item.id, 'quantite': 1}) }}';" 
+					data-toggle="tooltip" title="" data-placement="bottom" data-html="true" data-container="body" data-original-title="Ajouter <b>{{item.libelle}}</b> à mon panier">
+						<img src="/{{item.visuel}}"/>
+						<div class="card-body">
+							<h4 class="card-title">{{item.libelle}}</h4>
+							<p class="card-text">
+								<i>{{item.texte}}</i>
+							</p>
+
+							<h2>
+								<span class="badge badge-primary">
+									<i class="fas fa-cart-plus"></i>&nbsp;&nbsp;
+											€{{item.prix}}
+								</span>
+							</h2>
+						</div>
+					</div>
+				</div>
+
+			{% endfor %}
+		</div>
+	</div>
+
+
+{% endblock %}

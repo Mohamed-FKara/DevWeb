@@ -1,0 +1,126 @@
+{# barre de navigation  #}
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+	<a class="navbar-brand" href="{{ path("app_default_index") }}">
+		<i class="fas fa-home"></i>
+		{% trans %}template.navbar.msg_acceuil{% endtrans %}
+	</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item">
+				<a class="nav-link" href="{{ path("app_default_boutique") }}">
+					<i class="fas fa-store"></i>
+					{% trans %}template.navbar.boutique{% endtrans %}
+				</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="{{ path("app_default_contact") }}">
+					<i class="fas fa-comments"></i>
+					{% trans %}template.navbar.contact{% endtrans %}
+				</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="{{ path("app_panier_index") }}">
+					<i class="fas fa-shopping-cart"></i>
+					{{render(controller('App\\Controller\\PanierController::nombreProduits'))}}
+					{% trans %}template.navbar.items{% endtrans %}
+				</a>
+			</li>
+			<ul class="navbar-nav my-0">
+				<li class="nav-item dropdown">
+					<span class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<i class="fas fa-user"></i>
+						{% trans %}template.navbar.usager{% endtrans %}
+					</span>
+					<div class="dropdown-menu" aria-labelledby="dropdown02" style="min-width: 5rem;">
+						<a class="dropdown-item " href="/fr/usager/">
+							{% trans %}template.navbar.connexion{% endtrans %}
+						</a>
+						<a class="dropdown-item " href="/fr/usager/inscription">
+							{% trans %}template.navbar.inscription{% endtrans %}
+						</a>
+						<a class="dropdown-item disabled" href="/fr/usager/">
+							{% trans %}template.navbar.mon_compte{% endtrans %}
+						</a>
+						<a class="dropdown-item disabled" href="/fr/usager/commandes">
+							{% trans %}template.navbar.mes_commandes{% endtrans %}
+						</a>
+						<a class="dropdown-item disabled" href="/fr/logout">
+							{% trans %}template.navbar.déconnexion{% endtrans %}
+						</a>
+					</div>
+				</li>
+			</ul>
+			{# TODO : ajouter au fil des TPs les autres éléments du menu #}
+		</ul>
+		<!-- Début champ de recherche -->
+
+
+		<form class="form-inline my-2 my-lg-0" id="searchForm">
+			<input class="form-control mr-sm-2" name="recherche" id="searchString" type="text" placeholder="{% trans %}template.navbar.barre{% endtrans %}" aria-label="Search">
+			<button id="searchButton" class="btn btn-secondary my-2 my-sm-0">
+				<i class="fas fa-search"></i>
+			</button>
+		</form>
+
+
+		<!-- Fin champ de recherche -->
+		<!-- Début menu des monnaies -->
+		<ul class="navbar-nav my-0">
+			<li class="nav-item dropdown">
+				<span class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					EUR
+				</span>
+				<div class="dropdown-menu" aria-labelledby="dropdown02" style="min-width: 5rem;">
+					<a class="dropdown-item" href="/fr/boutique/changerMonnaie/GBP/app_panier_index/%7B%22_locale%22:%22fr%22%7D">
+						GBP
+					</a>
+					<a class="dropdown-item" href="/fr/boutique/changerMonnaie/USD/app_panier_index/%7B%22_locale%22:%22fr%22%7D">
+						USD
+					</a>
+					<a class="dropdown-item" href="/fr/boutique/changerMonnaie/CAD/app_panier_index/%7B%22_locale%22:%22fr%22%7D">
+						CAD
+					</a>
+					<a class="dropdown-item" href="/fr/boutique/changerMonnaie/XOF/app_panier_index/%7B%22_locale%22:%22fr%22%7D">
+						XOF
+					</a>
+					<a class="dropdown-item" href="/fr/boutique/changerMonnaie/PHP/app_panier_index/%7B%22_locale%22:%22fr%22%7D">
+						PHP
+					</a>
+					<a class="dropdown-item" href="/fr/boutique/changerMonnaie/IDR/app_panier_index/%7B%22_locale%22:%22fr%22%7D">
+						IDR
+					</a>
+				</div>
+			</li>
+		</ul>
+		<!-- Fin menu des monnaies -->
+		<!-- Début menu des langues -->
+		{% set locale = app.request.attributes.get('_locale') %}
+
+		{% set route = app.request.attributes.get('_route') %}
+
+		{% set params = app.request.attributes.get('_route_params') %}
+
+		<ul class="navbar-nav my-0">
+
+			<li class="nav-item dropdown">
+				<span class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<img src="{{asset('images/locale/' ~ locale ~ '.png')}}">
+				</span>
+
+				{% for uneLocale in supported_locales | split('|') %}
+					{% if uneLocale !=  app.request.attributes.get('_locale')%}
+						<div class="dropdown-menu" aria-labelledby="dropdown01" style="min-width: 5rem;">
+							<a class="dropdown-item" href="{{ path(route, params | merge({'_locale': uneLocale })) }}">
+								<img src="{{asset('images/locale/' ~ uneLocale ~ '.png')}}">
+							</a>
+						</div>
+					{% endif %}
+				{% endfor %}
+			</li>
+		</ul>
+		<!-- Fin Menu des langues -->
+	</div>
+</nav>

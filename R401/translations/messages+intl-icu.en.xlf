@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="en" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="PYXxpa_" resname="template.navbar.msg_acceuil">
+        <source>template.navbar.msg_acceuil</source>
+        <target>Home</target>
+      </trans-unit>
+      <trans-unit id="he9gc6J" resname="template.navbar.boutique">
+        <source>template.navbar.boutique</source>
+        <target>Store</target>
+      </trans-unit>
+      <trans-unit id="09aq8jJ" resname="template.navbar.contact">
+        <source>template.navbar.contact</source>
+        <target>Contact</target>
+      </trans-unit>
+      <trans-unit id="C.zYLY3" resname="template.navbar.connexion">
+        <source>template.navbar.connexion</source>
+        <target>Sign in</target>
+      </trans-unit>
+      <trans-unit id="NWkd_pb" resname="template.navbar.inscription">
+        <source>template.navbar.inscription</source>
+        <target>Register</target>
+      </trans-unit>
+      <trans-unit id="F5dCQtn" resname="template.navbar.mon_compte">
+        <source>template.navbar.mon_compte</source>
+        <target>My account</target>
+      </trans-unit>
+      <trans-unit id="KuVOosj" resname="template.navbar.mes_commandes">
+        <source>template.navbar.mes_commandes</source>
+        <target>My orders</target>
+      </trans-unit>
+      <trans-unit id="YTlkTWu" resname="template.navbar.déconnexion">
+        <source>template.navbar.déconnexion</source>
+        <target>Sign Out</target>
+      </trans-unit>
+      <trans-unit id="5lieYfn" resname="template.navbar.barre">
+        <source>template.navbar.barre</source>
+        <target>search item(s)...</target>
+      </trans-unit>
+      <trans-unit id="hkKUoKD" resname="template.navbar.garder_contact">
+        <source>template.navbar.garder_contact</source>
+        <target>Stay in touch</target>
+      </trans-unit>
+      <trans-unit id="pWZTpmi" resname="template.navbar.items">
+        <source>template.navbar.items</source>
+        <target>Item(s)</target>
+      </trans-unit>
+      <trans-unit id="vjS2Y46" resname="template.navbar.usager">
+        <source>template.navbar.usager</source>
+        <target>User</target>
+      </trans-unit>
+      <trans-unit id="Ao2nbEh" resname="template.navbar.top">
+        <source>template.navbar.top</source>
+        <target>Top Sales</target>
+      </trans-unit>
+      <trans-unit id="83rCeaa" resname="template.navbar.Boutique R4.01">
+        <source>template.navbar.Boutique R4.01</source>
+        <target>R4.01 Store</target>
+      </trans-unit>
+      <trans-unit id="N85m4XG" resname="template.navbar.rien_vendre">
+        <source>template.navbar.rien_vendre</source>
+        <target>Nothing to trade,we just want to learn...</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
